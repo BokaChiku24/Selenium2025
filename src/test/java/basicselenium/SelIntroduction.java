@@ -9,35 +9,35 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SelIntroduction {
     public static void main(String[] args) {
 
-//Invoking Browser
+    //Invoking Browser
 
-//Chrome - ChromeDriver exten->Methods close get
+    //Chrome - ChromeDriver exten->Methods close get
 
-//Firefox- FirefoxDriver ->methods close get
+    //Firefox- FirefoxDriver ->methods close get
 
-// WebDriver  close  get
+    // WebDriver  close  get
 
-//WebDriver methods + class methods
+    //WebDriver methods + class methods
 
-// Chrome
+    // Chrome
 
         ChromeOptions options = new ChromeOptions();
 
         options.addArguments("--remote-allow-origins=*");
 
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/SeleniumDrivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
 
         WebDriver driver = new ChromeDriver(options);
 
-//Firefox
+    //Firefox
 
-        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/SeleniumDrivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/SeleniumDrivers/geckodriver");
 
         WebDriver driver1 = new FirefoxDriver();
 
-//Microsoft Edge
+    //Microsoft Edge
 
-        System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+"/SeleniumDrivers/msedgedriver");
+        System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "/SeleniumDrivers/msedgedriver");
 
         WebDriver driver2 = new EdgeDriver();
 
@@ -49,7 +49,7 @@ public class SelIntroduction {
 
         driver.close();
 
-//driver.quit();
+    //driver.quit();
 
     }
 
