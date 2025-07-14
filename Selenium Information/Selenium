@@ -1,0 +1,45 @@
+1) What is Interface in Java?
+
+  -> An interface is a group of related methods with empty bodies.
+     Its class responsibility to implement the methods declared in the interface.
+     When class agreed to implement the interface, they must need to provide implementation/bodies to
+     all the defined methods in Interface,
+
+     In simple terms, Interface enforce the Contract to class to follow.
+
+2) WebDriver is an Interface which provides Set of Browser Automation methods with empty bodies
+   (Abstract methods)
+
+  -> Classes like ChromeDriver, FirefoxDriver, MicrosoftEdgeDriver, SafariDriver etc implement the
+     WebDriver Interface and provide their own implementation to the WebDriver methods.
+
+3) We need to create the object of the class to access the methods present in the class.
+
+  -> ChromeDriver driver = new ChromeDriver();
+  -> driver object here has access to all the methods of ChromeDriver
+  -> WebDriver driver = new ChromeDriver();
+  -> driver object here has access to the methods of Chrome driver which are defined in WebDriver Interface
+
+4) Java class:
+
+   import org.openqa.selenium.chrome.ChromeDriver;
+
+   public class Selenium implements WebDriver {
+
+    public static void main(String[] args){
+
+        // Invoking the Browser
+        // Chrome - ChromeDriver -> Methods (get, close, etc..)
+        // Safari - SafariDriver -> Methods (get, close, etc..)
+        // Firefox - FirefoxDriver -> Methods (get, close, etc..)
+        // chromedriver.exe or chromedriver - Invoke the Chrome Browser (Selenium 2.53.1 or Selenium 3.X)
+        // Selenium Manager -> No need to provide chromedriver.exe or chromedriver (Selenium 4.x)
+        // WebDriver Methods + Class Methods
+        // WebDriver just have method name, don't exist code. Class which implement WebDriver has to
+           include that method body. e.g.
+           WebDriver driver = new ChromeDriver();
+           driver.get("https://www.google.com");
+           driver.close();
+       }
+
+    }

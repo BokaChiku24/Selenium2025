@@ -1,0 +1,18 @@
+Selenium WebDriver Architecture Information
+
+1) The WebDriver client translate the commands from your script into HTTP requests
+   following the W3C WebDriver protocol.
+
+2) Why W3C WebDriver Protocol?
+   All modern browser (Chrome, Firefox, Safari, Edge) natively support the W3C protocol,
+   ensuring consistent behavior.
+
+3) These HTTP request are sent to the Browser Driver:
+   What is Browser Driver?
+   Each browser (Chrome, Firefox, Safari, Edge) has its own dedicated driver.
+   This driver is a small program tha acts as a translator between the WebDriver protocol and the browser itself.
+
+4) Finally the browser drivers interpret the HTTP request and control the actual web browser,
+   carrying out the actions your test scripts define (opening pages, clicking button, filling forms, etc)
+
+5) The browser executes the commands and return the response to the driver, which delayed back to the WebDriver client.
