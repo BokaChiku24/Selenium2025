@@ -43,10 +43,11 @@ public class HappyPath {
 
     public String getPassword(WebDriver driver){
         driver.findElement(By.linkText("Forgot your password?")).click();
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Name']"))));
-        driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Name']")).sendKeys("Kunal");
-        driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Email']")).sendKeys("kunalchavan24@gmail.com");
-        driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Phone Number']")).sendKeys("1234567890");
+      //  wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Name']"))));
+      //  driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Name']")).sendKeys("Kunal");
+      //  driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Email']")).sendKeys("kunalchavan24@gmail.com");
+      //  driver.findElement(By.cssSelector("form[action='#'] > input[placeholder='Phone Number']")).sendKeys("1234567890");
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".reset-pwd-btn")));
         driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector("p.infoMsg"))));
         WebElement resetLoginMessage = driver.findElement(By.cssSelector("p.infoMsg"));
