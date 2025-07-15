@@ -15,8 +15,6 @@ public class Base {
 
     public static void main(String[] args) throws InterruptedException {
 
-// TODO Auto-generated method stub
-
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
         WebDriver driver = new ChromeDriver();
 
@@ -73,7 +71,7 @@ public class Base {
 
 //  check whether name you extracted is present in arrayList or not-
 
-            List itemsNeededList = Arrays.asList(itemsNeeded);
+            List<String> itemsNeededList = Arrays.asList(itemsNeeded);
 
             if (itemsNeededList.contains(formattedName)) {
 
