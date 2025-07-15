@@ -1,0 +1,36 @@
+Synchronization in Selenium:
+
+Entered Form and Select movie/fligt enter
+Search:
+Load 3 seconds
+First flight search result: Script will fail - no such Element
+
+1) Implicit Wait:
+   Wait for 'n' number of seconds and listen to the DOM before you throw exception
+   Apply 5 seconds but Element appears in 2 seconds script skips remaining 3 seconds and resume execution
+   In implicit wait it applies globay in the script for tags in the DOM.
+   Code looks readable and optimize
+
+   Disadvantage:
+   Suppose there are 100 test cases and for one search result it takes 5 seconds and one specific search result it takes
+   15 seconds.
+   Now here, we have provided 5 seconds in implicit wait and for 15 seconds script will fail.
+   Workaround is make implicit wait 15 seconds but it is bad idea.
+   Now suppose 100 cities are returining result in 4-5 seconds and due to some issue in the application it start
+   returning 10-13 seconds in this case this issue will not catch because of this 15 seconds of the implicit wait.
+   Apart from this test execution speed slows down - suppose 2-4 cities have some error
+   SO selenium will wait 15 seconds and then it will throw error and this will repeat for error cities.
+   Note: Better to keep it minium as per your web-site standard or team lead or manager suggest
+
+2) Explicit Wait:
+   It target only specific element and we can set the desired time for that element.
+   It is applicable to specific situation
+
+   Very Important: Implicit and Explicit both are combinly used to achive goals. For 1000 test cases we can't rely on eplicit
+   wait.
+
+3) Fluent Wait:
+
+4) Thread.sleep(Duration.ofSeconds(5000)):
+   It is java parat. It is hard coded pause the script. It is forcefully stop the execution even though
+   result is appeared within the time. It not skips the time just likje implicit or explicit wait.
