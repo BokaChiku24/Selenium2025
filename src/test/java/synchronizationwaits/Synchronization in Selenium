@@ -1,6 +1,6 @@
 Synchronization in Selenium:
 
-Entered Form and Select movie/fligt enter
+Entered Form and Select movie/flight enter
 Search:
 Load 3 seconds
 First flight search result: Script will fail - no such Element
@@ -9,6 +9,7 @@ First flight search result: Script will fail - no such Element
    Wait for 'n' number of seconds and listen to the DOM before you throw exception
    Apply 5 seconds but Element appears in 2 seconds script skips remaining 3 seconds and resume execution
    In implicit wait it applies global in the script for tags in the DOM.
+
    Pro:Code looks readable and optimize
    Cons: Performance issues not caught
 
@@ -16,12 +17,22 @@ First flight search result: Script will fail - no such Element
    Suppose there are 100 test cases and for one search result it takes 5 seconds and one specific search result it takes
    15 seconds.
    Now here, we have provided 5 seconds in implicit wait and for 15 seconds script will fail.
+
    Workaround is make implicit wait 15 seconds but it is bad idea.
+
    Now suppose 100 cities are returining result in 4-5 seconds and due to some issue in the application it start
    returning 10-13 seconds in this case this issue will not catch because of this 15 seconds of the implicit wait.
+
    Apart from this test execution speed slows down - suppose 2-4 cities have some error
    SO selenium will wait 15 seconds and then it will throw error and this will repeat for error cities.
+
    Note: Better to keep it minium as per your web-site standard or team lead or manager suggest
+**************************************************************************************************************
+
+Explicit wait can be achived in 2 ways:
+a) WebDriverWait = 10 seconds
+
+b) FluentWait = 10 seconds, 2 seconds polling
 
 2) Explicit Wait:
    It target only specific element and we can set the desired time for that element.
@@ -34,6 +45,31 @@ First flight search result: Script will fail - no such Element
    Con: More code
 
 3) Fluent Wait:
+   This is another explicit wait mechanisum type called Fluent Wait.
+   How fluent wait different from WebDriver wait?
+   Fluent wait finds the web element reeatedly at regular interval of time until the timeout or till the object gets found.
+
+   Unlike WebDriverWait, we need to build customized wait method based on condition.
+
+   Both WebDriverWait and FluentWait classes implement under Wait Interface.
+
+   Example: Message changes after couple of seconds - 'Your card is accepted' (3 Seconds), 'Your order is being processes',
+            'Condirmation message' (7 Seconds) to handle such scenarion FluentWait is useful.
+
+   Syntax:
+
+    // Waiting 30 seconds for an element to be present on the page, checking
+      // for its presence once every 5 seconds.
+      Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+          .withTimeout(Duration.ofSeconds(30L))
+          .pollingEvery(Duration.ofSeconds(5L))
+          .ignoring(NoSuchElementException.class);
+
+      WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+        public WebElement apply(WebDriver driver) {
+          return driver.findElement(By.id("foo"));
+        }
+      });
 
 4) Thread.sleep(Duration.ofSeconds(5000)):
    It is java parat. It is hard coded pause the script. It is forcefully stop the execution even though
