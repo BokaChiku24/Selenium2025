@@ -8,8 +8,9 @@ First flight search result: Script will fail - no such Element
 1) Implicit Wait:
    Wait for 'n' number of seconds and listen to the DOM before you throw exception
    Apply 5 seconds but Element appears in 2 seconds script skips remaining 3 seconds and resume execution
-   In implicit wait it applies globay in the script for tags in the DOM.
-   Code looks readable and optimize
+   In implicit wait it applies global in the script for tags in the DOM.
+   Pro:Code looks readable and optimize
+   Cons: Performance issues not caught
 
    Disadvantage:
    Suppose there are 100 test cases and for one search result it takes 5 seconds and one specific search result it takes
@@ -26,8 +27,11 @@ First flight search result: Script will fail - no such Element
    It target only specific element and we can set the desired time for that element.
    It is applicable to specific situation
 
-   Very Important: Implicit and Explicit both are combinly used to achive goals. For 1000 test cases we can't rely on eplicit
+   Very Important: Implicit and Explicit both are combinly used to achieve goals. For 1000 test cases we can't rely on eplicit
    wait.
+
+   Pro: Wait is applied only at target element so not issue of missout performance issue
+   Con: More code
 
 3) Fluent Wait:
 
