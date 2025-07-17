@@ -1,20 +1,20 @@
 package seleniummiscellaneous.httpcertificates;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class HTTPTestCases {
+public class HTTPTestCasesFirefox {
     @Test
-    public void tableTest() {
-        ChromeOptions option = new ChromeOptions();
+    public void httpTest() {
+        FirefoxOptions option = new FirefoxOptions();
         option.setAcceptInsecureCerts(true);
-        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
-        WebDriver driver = new ChromeDriver(option);
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/SeleniumDrivers/geckodriver");
+        WebDriver driver = new FirefoxDriver(option);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10L));

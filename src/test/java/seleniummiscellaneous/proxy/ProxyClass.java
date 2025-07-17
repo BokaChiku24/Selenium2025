@@ -1,5 +1,6 @@
-package seleniummiscellaneous.httpcertificates;
+package seleniummiscellaneous.proxy;
 
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -8,11 +9,14 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class HTTPTestCases {
+public class ProxyClass {
     @Test
-    public void tableTest() {
+    public void httpTest() {
         ChromeOptions option = new ChromeOptions();
         option.setAcceptInsecureCerts(true);
+        Proxy pr = new Proxy();
+        pr.setHttpProxy("ipaddress:4444");
+        option.setCapability("proxy",pr);
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
         WebDriver driver = new ChromeDriver(option);
         driver.manage().window().maximize();

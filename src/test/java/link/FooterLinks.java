@@ -1,4 +1,4 @@
-package linkcount;
+package link;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

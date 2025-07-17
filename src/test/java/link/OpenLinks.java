@@ -1,16 +1,14 @@
-package linkcount;
+package link;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
-public class LinkTitle {
+public class OpenLinks {
     @Test
     public void testOpenLinks() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
@@ -23,20 +21,20 @@ public class LinkTitle {
         System.out.println("Footer total links: " + footerSection.findElements(By.tagName("a")).size());
         WebElement limitFooterSection = driver.findElement(By.cssSelector("#gf-BIG .gf-t td:nth-child(1) ul"));
         System.out.println("1st Column Footer total links: " + limitFooterSection.findElements(By.tagName("a")).size());
-        for (int i = 0; i < limitFooterSection.findElements(By.tagName("a")).size(); i++) {
-            String commandMac = Keys.chord(Keys.COMMAND, Keys.RETURN); // mac
+        Actions action = new Actions(driver);
+        List<WebElement> linkOpen = limitFooterSection.findElements(By.tagName("a"));
+        for(int i = 0; i < linkOpen.size(); i++){
+            action.keyDown(Keys.COMMAND).click(linkOpen.get(i)).keyUp(Keys.COMMAND).build().perform();
+            // Keys.chord(Keys.COMMAND,Keys.RETURN);
+        }
+        /*
+        OR
+         for(int i = 0; i < limitFooterSection.findElements(By.tagName("a")).size()); i++){
+            String commandMac = Keys.chord(Keys.COMMAND, Keys.Return); // mac
             String commandWindows = Keys.chord(Keys.CONTROL, Keys.ENTER); // windows
-            limitFooterSection.findElements(By.tagName("a")).get(i).sendKeys(commandMac);
+            limitFooterSection.findElements(By.tagName("a")).get(i).sendKeys(command);
         }
-        Set<String> windows = driver.getWindowHandles();
-        Iterator<String> itr = windows.iterator();
-        List<String> title = new ArrayList<String>();
-        while(itr.hasNext()){
-                driver.switchTo().window(itr.next());
-                title.add(driver.getTitle());
-                driver.close();
-        }
-        System.out.println(title);
-        driver.quit();
+         */
+        driver.close();
     }
 }

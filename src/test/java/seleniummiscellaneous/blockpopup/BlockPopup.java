@@ -1,4 +1,4 @@
-package seleniummiscellaneous.httpcertificates;
+package seleniummiscellaneous.blockpopup;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,11 +8,12 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class HTTPTestCases {
+public class BlockPopup {
     @Test
-    public void tableTest() {
+    public void httpTest() {
         ChromeOptions option = new ChromeOptions();
         option.setAcceptInsecureCerts(true);
+        option.setExperimentalOption("excludeSwitches","Arrays.asList(disable-popup-blocking)");
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
         WebDriver driver = new ChromeDriver(option);
         driver.manage().window().maximize();
