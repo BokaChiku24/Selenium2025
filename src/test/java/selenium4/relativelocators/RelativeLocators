@@ -1,0 +1,10 @@
+
+Relative Locators
+
+1) above(): Element located above with respect to the specified element
+2) below(): Element located below with respect to the specified element
+3) toLeftOf(): Element located to the left of specified element
+4) toRightOf(): Element located to the right of the specified element
+
+Syntax:
+driver.findElement(By.tagName('XX').above(WebElement));
