@@ -1,0 +1,67 @@
+
+Selenium/Appium scripting with DataBase Validation
+
+i) Problem Explanation
+ii) Downloading mySQL
+iii) Creating Database and Tables
+iv) JDBC Connection with Java programming
+v) Selenium/Appium Integration on JDBC code
+vi) Retriving data from Database and executing with Selenium/Appium
+
+*****************************************************************************
+
+Download MySQL complete product from
+
+https://dev.mysql.com/downloads/windows/installer/
+
+i) Download exe file for Windows / dmg file for Mac
+ii) Select 'connect to the internet' option to download new/updated MySql.
+iii) Select the 'Developer Default' - 'Setup Type' and select the installation directory
+iv) Check the requirement software if not avilable then install it.
+v) On 'Installation' screen it install all MySQL comoponents which is mandatory
+vi) On 'Configuration' page user needs to provide root and password.
+i.e. MySQL Root Password
+
+*****************************************************************************
+
+i) Open the MySQL download folder
+ii) Go to the MYSQL Workbench folder
+iii) Open the MySQL.exe
+iv) First connect to the server by using valid credentials
+v) Click on the Local instance MySQL56 - It will connect to the window
+Service: Mysql@localhost:3306
+User: root
+Password:
+vi) It will open the editor and left side display databases
+
+*****************************************************************************
+
+Create Database
+
+i) create database SeleniumData; // SeleniumData is the database name
+Note: 1 row effected it notify query execute successfully. It acts as acknowledgement.
+Comment: #Creating Database
+
+ii) For use and doing operation first point to the database:
+#Pointing to database
+use SeleniumData;
+
+iii) Create table under the database
+#Create a table (Combination of row + column)
+create table EmployeeInfo(name varchar(20), id int, location varchar (20), age int)
+
+iv) #Table Schema or Table Structure and Constraint
+describe EmployeeInfo;
+
+Field         Type          Null   Key   Default  Extra
+name          varchar(20)    Yes         NULL
+id            int            Yes         NULL
+location      varchar(20)    Yes         NULL
+age
+
+v) Insert the reords into the table.
+# Inserting records
+insert into EmployeeInfo values('sam',   61, 'newJersy', 21);
+insert into EmployeeInfo values('ram',   23, 'newYork', 56);
+insert into EmployeeInfo values('taam',  11, 'california', 24);
+insert into EmployeeInfo values('kunal', 10, 'nortCarolina', 34);

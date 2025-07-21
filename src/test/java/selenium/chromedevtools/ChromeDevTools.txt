@@ -1,0 +1,63 @@
+
+Seleneium ChromeDevTools Integration -
+
+1) What are ChromeDevTools:
+
+i) Chrome DevTools is a set of web devloper tools build directly into the Google Chrome browser.
+
+ii) Whit Chrome DevTools, devlopers have deeper access to the Application which render on browser.
+
+***************************************************************************
+
+2) What is Chrome DevTools Protocol (CDP)?
+
+i) The Chrome DevTools Protocol provides tools to instrument, inspect, debug, and profile Chromium, Chrome,
+and other Blink-Based=Browser.
+
+ii) Selenium 4 introduces powerful commands which are wrapper around the CDP Doamins to grant access to Chrome
+DevTools directly from automation tests.
+
+iii) WIth this CDP support Seleneium open up the possiblities of out of box testing with the complete access and control
+to the browser features browser test.
+
+Examples:
+
+a) Capture, Monitor and Stub the Network request and response.
+
+b) Inject Session Cookies and Perform Basic Auth
+
+c) Mock Device Co-ordinate for Moile/Tabs View
+
+d) Check and monitor the site's performance
+
+e) Mock geolocations of the user
+
+f) Block the Network request
+
+g) Mock faster/slower netwok speeds
+
+h) Execute and debug JavaScript
+
+i) View Console Logs
+
+***************************************************************************
+
+3) Code Snippet to initialize ChromeDevTools connection with Selenium
+
+i) Chromium Driver class has pre-defined methods to access the DevTools.
+
+ii) Chrome Driver and Edge Driver are inherited from Chromium Driver. So, we can access to the
+DevTools with Chrome and Edge Browser.
+
+Step 1:
+Initialize Chromium Driver
+
+Step 2:
+Create the object for Chrome DevTools with getDevTools() method
+
+DevTools devTools = driver.getDevTools();
+
+returns the new DevTools object which allows you to send() the built-in selenium commands for CDP.
+
+Step 3:
+Initiate DevTools Session to send the commands from Seleneium devTools.createSession()

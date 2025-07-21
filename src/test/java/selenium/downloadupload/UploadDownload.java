@@ -38,7 +38,7 @@ public class UploadDownload {
         // Download existing excel
         driver.findElement(By.cssSelector("#downloadButton")).click();
 
-        //Edit excel - getColumnNumber of Price -getRownumber of APple-> update excel with row,col
+        //Edit excel - getColumnNumber of Price -getRownumber of Apple-> update excel with row,col
         int col =getColumnNumber(filePath,"price");
         int row = getRowNumber(filePath,"Apple");
         Assert.assertTrue(updateCell(filePath,row,col,updatedValue));
