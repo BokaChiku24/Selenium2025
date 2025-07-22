@@ -59,9 +59,21 @@ id            int            Yes         NULL
 location      varchar(20)    Yes         NULL
 age
 
-v) Insert the reords into the table.
+v) Insert the records into the table.
 # Inserting records
 insert into EmployeeInfo values('sam',   61, 'newJersy', 21);
 insert into EmployeeInfo values('ram',   23, 'newYork', 56);
 insert into EmployeeInfo values('taam',  11, 'california', 24);
 insert into EmployeeInfo values('kunal', 10, 'nortCarolina', 34);
+
+*****************************************************************************
+
+use SeleniumData;
+create table EmployeeInfo(name varchar(20), id int, location varchar (20), age int)
+insert into EmployeeInfo values('sam',   61, 'newJersy', 21);
+insert into EmployeeInfo values('ram',   23, 'newYork', 56);
+insert into EmployeeInfo values('taam',  11, 'california', 24);
+insert into EmployeeInfo values('kunal', 10, 'nortCarolina', 34);
+select * from EmployeeInfo;
+select * from EmployeeInfo where name = 'kunal';
+
