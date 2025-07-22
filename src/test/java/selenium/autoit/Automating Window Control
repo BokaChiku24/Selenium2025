@@ -1,0 +1,66 @@
+Automating Window Control with Selenium and AutoIt
+
+1) Handling Windows Authentication Pop-up
+   e.g. http://username:password@siteURL
+
+2) Handling File Upload from Windows using AutoIT
+
+*********************************************************
+
+1) What is AutoIt?
+   - AutoIt is a scripting language designed for automating the Windows GUI and general scripting.
+   - It can simulate keystrokes, mouse movements, and window commands to automate tasks.
+
+2) Install AutoIt
+   - Download AutoIt from https://www.autoitscript.com/site/autoit/downloads/
+   - Install the software.
+   - Open the exe installer and follow the installation instructions.
+   - Select the default options during installation.
+   - Select the 'Run the script' option if prompted.
+   - Select the full installation option.
+   - Set the installation path (e.g., `C:\Program Files (x86)\AutoIt3`).
+
+
+3) AutoIt Script for File Upload
+   - Create a new AutoIt script file (e.g., `fileUpload.au3`).
+   - Write the script to handle the file upload dialog.
+
+4) Integrate AutoIt with Selenium
+   - Use the AutoIt script in your Selenium tests to handle file uploads.
+
+*********************************************************
+
+Writing AutoIt Script for File Upload:
+
+1) Open the AutoIt Script Editor from SciTE
+   - Navigate to the AutoIt installation directory (e.g., `C:\Program Files (x86)\AutoIt3\SciTE`).
+   - Open the SciTE editor.
+   - Write the AutoIt script to handle the file upload dialog.
+
+Steps:
+    - Shift focus to the file upload dialog window
+    - Send the file path to the dialog
+    - Click the Open button to upload the file
+    - Open the Au3Info_64.exe tool to get the window title and control IDs
+    - Click on the "Finder Tool" button
+    - Spy on the file upload dialog to get the control IDs
+    - Use the control IDs in your AutoIt script
+    - Use the `ControlFocus` and `ControlSetText` functions to interact with the dialog controls
+    - Save the script with a `.au3` extension in the AutoIt directory (e.g., `C:\Program Files (x86)\AutoIt3\Scripts\fileUpload.au3`).
+    - Compile the script to an executable using the AutoIt compiler (Right-click the script file and select "Compile Script").
+    - This will create an executable file (e.g., `fileUpload.exe`) that can be run from your Selenium tests.
+    - Invoke the compiled AutoIt script from your Selenium test code using the `Runtime.getRuntime().exec()` method.
+
+    - Au3info_64.exe is a tool that comes with AutoIt to help you find window titles and control IDs for automation.
+    - Build script - scite.exe is the editor for AutoIt scripts.
+    - Convert file into executable - Right-click on the script file and select "Compile Script" to create an executable.
+    - Call Runtime.getRuntime().exec() in your Selenium test code to run the AutoIt script.
+*********************************************************
+
+Script Example:
+
+ControlFocus("Open", "", "Edit1") ; Focus on the file input field // Edit1: Class + Instance concatenation
+ControlSetText("Open", "", "Edit1", "C:\path\to\your\file.txt") ; Set the file path
+ControlClick("Open", "", "Button1") ; Click the Open button
+
+*********************************************************

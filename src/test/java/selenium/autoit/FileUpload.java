@@ -1,0 +1,62 @@
+package selenium.autoit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.util.HashMap;
+
+public class FileUpload {
+    public static void main(String[] args) throws InterruptedException, IOException {
+        String downloaPath = System.getProperty("user.dir");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/SeleniumDrivers/chromedriver");
+        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+        chromePrefs.put("profile.default_content_settings.popups", 0);
+        chromePrefs.put("download.default_directory", downloaPath);
+        ChromeOptions option = new ChromeOptions();
+        /*
+        option.setExperimentalOption("prefs", Map.of(
+                "download.default_directory", downloaPath,
+                "download.prompt_for_download", false,
+                "download.directory_upgrade", true,
+                "safebrowsing.enabled", true
+        ));
+
+         */
+        option.setExperimentalOption("prefs", chromePrefs);
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://altoconvertpdftojpg.com/");
+        driver.findElement(By.cssSelector("[class*='btn--choose']")).click();
+        Thread.sleep(Duration.ofSeconds(3));
+        // AutoIt script to handle file upload
+        Runtime.getRuntime().exec("src/test/java/selenium/autoit/FileUploadScript.exe");
+        // Wait for the file to upload
+        // Continue with further actions if needed
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[class*='medium]")));
+        driver.findElement(By.cssSelector("button[class*='medium]")).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Download Now")));
+        driver.findElement(By.linkText("Download Now")).click();
+        File f = new File(downloaPath + "/converted.zip");
+        if(f.exists()){
+            Assert.assertTrue(f.exists());
+            System.out.println("File downloaded successfully: " + f.getAbsolutePath());
+            if (f.delete()){
+                System.out.println("File deleted successfully: " + f.getAbsolutePath());
+            } else {
+                System.out.println("Failed to delete the file: " + f.getAbsolutePath());
+            }
+        } else {
+            System.out.println("File download failed.");
+        }
+        driver.close();
+    }
+}
