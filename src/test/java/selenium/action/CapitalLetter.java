@@ -52,4 +52,5 @@ public class CapitalLetter {
         // Close the browser
         driver.close();
     }
+
 }
