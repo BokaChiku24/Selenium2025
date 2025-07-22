@@ -1,0 +1,30 @@
+GitHub Copilot AI for Selenium WebDriver Java Test/Framework Assistance
+
+IDE Used: JetBrains IntelliJ
+
+AI Capabilities:
+
+i) Create new files (Page Objects, Tests, etc) following the format of existing files.
+
+ii) Generate Selenium action methods with accurate locators using page HTML input.
+
+iii) Understand project hierarchy and establish connections across multiple files.
+
+iv) Identify and fix error in project files.
+
+v) Search for and retrieve method usages and implementation files within the project.
+
+vi) Add necessary comments and documentation to improve code readability.
+
+vii) Convert automation code into plain English manual test scenarioes.
+
+viii) optimize test code based on PR comments in peer-reviewed pull request.
+
+ix) Generate step definition implementation from Cucumber feature file.
+
+
+*************************************************
+
+AI Commands:
+
+1) Can you prepare documentation and add comments to the code?
