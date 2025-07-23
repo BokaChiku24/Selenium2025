@@ -61,3 +61,12 @@ returns the new DevTools object which allows you to send() the built-in selenium
 
 Step 3:
 Initiate DevTools Session to send the commands from Seleneium devTools.createSession()
+
+***************************************************************************
+
+
+WebDriver Code -> Send (Commands) -> Selenium Server        -> Chrome DevTools   -> Mimic the Browser
+       |                              Interprets Commands      Protocol (CDP)    action under the test
+       |                                                            |
+       |                                                            |
+       |--------------------executeCDPCommand(CDP)------------------|
